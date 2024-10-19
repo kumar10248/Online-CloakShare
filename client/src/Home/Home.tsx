@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { getData, postData } from "../Config";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload,faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faUpload,faFloppyDisk,faFile,faFileWord } from "@fortawesome/free-solid-svg-icons";
+
+
 
 const Home = () => {
   const [text, setText] = useState<string>("");
@@ -139,9 +141,9 @@ document.body.removeChild(link);
   
 
   return (
-    <>
+    <div className="bg-black">
     {/* top */}
-     <div className="text-2xl flex justify-center items-center"><h1>ONLINE  CLOAKSHARE</h1></div>
+     <div className="text-2xl bg-black pt-5 text-white flex justify-center items-center font-extrabold"><h1>ONLINE  CLOAKSHARE</h1></div>
    
     {/* <div className="homeNoticeText">Your Data will be deleted within 24 hours automatically if you leave expiration time empty.</div> */}
     {/* homeMainDiv */}
@@ -149,24 +151,27 @@ document.body.removeChild(link);
       <div className="w-1/2">
       <div className="">
         <div className="homeTitleText">Send to online CloakShare</div>
-        <div className="homeBtnDiv">
+        <div className="homeBtnDiv gap-x-5 min-[0px]:gap-y-5 max-[700px]:gap-y-0">
           <button
-            className="homeBtn"
+            // className="homeBtn"
+            className="px-7 py-2 bg-yellow-500 rounded-xl w-1/2 "
             onClick={() => {
               setIsText(true);
               setIsFile(false);
               setCodeText("");
             }}>
-            Text
+            Text <FontAwesomeIcon icon={faFileWord} />
           </button>
           <button
-            className="homeBtn"
+            // className="homeBtn"
+            className="w-1/2 bg-yellow-500 rounded-xl py-2 px-7 flex items-center justify-center"
             onClick={() => {
               setIsFile(true);
               setIsText(false);
               setCodeText("");
             }}>
             File
+            <FontAwesomeIcon className="mx-1 my-1" icon={faFile} />
           </button>
           </div>
         {isText&&<form
@@ -281,7 +286,7 @@ document.body.removeChild(link);
       </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
