@@ -142,24 +142,24 @@ document.body.removeChild(link);
   return (
     <div className="bg-black">
     {/* top */}
-<<<<<<< HEAD
+
      <div className="text-2xl bg-black pt-5 text-white flex justify-center items-center font-extrabold"><h1>ONLINE  CLOAKSHARE</h1></div>
-=======
-     <div className="text-3xl flex justify-center items-center h-20 bg-amber-500 text-stone-50 decoration-8 font-black"><h1>ONLINE  CLOAKSHARE</h1></div>
->>>>>>> 054f470e69b4c16fc1461335f49b7ac0f8fb931c
+
+
+
    
     {/* <div className="homeNoticeText">Your Data will be deleted within 24 hours automatically if you leave expiration time empty.</div> */}
     {/* homeMainDiv */}
     <div className="bg-black flex justify-center h-[100vh]">
       <div className="w-1/2">
       <div className="">
-<<<<<<< HEAD
+
         <div className="homeTitleText">Send to online CloakShare</div>
         <div className="homeBtnDiv gap-x-5 min-[0px]:gap-y-5 max-[700px]:gap-y-0">
-=======
+
         <div className="homeTitleText text-lime-300">Send to online CloakShare</div>
         <div className="homeBtnDiv">
->>>>>>> 054f470e69b4c16fc1461335f49b7ac0f8fb931c
+
           <button
             // className="homeBtn"
             className="px-7 py-2 bg-yellow-500 rounded-xl w-1/2 "
@@ -231,12 +231,12 @@ document.body.removeChild(link);
     <button type="submit" className="homeBtn">
       {isLoadingSave ? "Loading..." : "Save Copy"}
     </button>
-    {isLoadingSave&&<div className="progress-bar">
-  <div className="progress-bar-fill" style={{width: `${uploadProgress}%`}}></div>
-  <div className="progress-bar-text">{uploadProgress}%</div>
-</div>}
-  </form>
-)}
+        {isLoadingSave&&<div className="progress-bar">
+      <div className="progress-bar-fill" style={{width: `${uploadProgress}%`}}></div>
+     <div className="progress-bar-text">{uploadProgress}%</div>
+        </div>}
+      </form>
+    )}
 
         {codeText && (
           <div className="homeCode text-white">
@@ -295,7 +295,11 @@ document.body.removeChild(link);
       </div>
     </div>
     </div>
-  );
-};
+ 
+  </div>
+   );
+  
+}
+;
 
 export default Home;
