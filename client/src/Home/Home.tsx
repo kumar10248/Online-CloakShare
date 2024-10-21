@@ -77,7 +77,7 @@ document.body.removeChild(link);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] ?? null;
     setSelectedFile(selectedFile);
-    // console.log('Selected File:', selectedFile);
+    console.log('Selected File:', selectedFile);
 
   };
 
@@ -96,6 +96,7 @@ document.body.removeChild(link);
   
 
   const handleUpload = async (e: React.FormEvent) => {
+    console.log('Selected File successfully:');
     e.preventDefault();
     setCodeText("");
   
@@ -129,7 +130,7 @@ document.body.removeChild(link);
   
       const response = await postData('upload', formData, config);
   
-      // console.log('File uploaded:', response.data);
+      console.log('File uploaded:', response.data);
       setCodeText(response.code);
       setIsLoadingSave(false);
     } catch (error) {
@@ -142,24 +143,15 @@ document.body.removeChild(link);
   return (
     <div className="bg-black">
     {/* top */}
-
      <div className="text-2xl bg-black pt-5 text-white flex justify-center items-center font-extrabold"><h1>ONLINE  CLOAKSHARE</h1></div>
-
-
-
    
     {/* <div className="homeNoticeText">Your Data will be deleted within 24 hours automatically if you leave expiration time empty.</div> */}
     {/* homeMainDiv */}
     <div className="bg-black flex justify-center h-[100vh]">
       <div className="w-1/2">
       <div className="">
-
         <div className="homeTitleText">Send to online CloakShare</div>
         <div className="homeBtnDiv gap-x-5 min-[0px]:gap-y-5 max-[700px]:gap-y-0">
-
-        <div className="homeTitleText text-lime-300">Send to online CloakShare</div>
-        <div className="homeBtnDiv">
-
           <button
             // className="homeBtn"
             className="px-7 py-2 bg-yellow-500 rounded-xl w-1/2 "
@@ -194,7 +186,7 @@ document.body.removeChild(link);
               setText(e.target.value);
             }}
           />
-          <div className="homeExpireDiv text-lime-300">Expiration Time: <input type="text" className="homeExpireInput bg-stone-50 text-rose-700" maxLength={4} value={number} onChange={handleErrorNumChange} /> minutes. (max. 2880 minutes)</div>
+          <div className="homeExpireDiv">Expiration Time: <input type="text" className="homeExpireInput" maxLength={4} value={number} onChange={handleErrorNumChange} /> minutes. (max. 2880 minutes)</div>
           <button
             type="submit"
             className="px-6 py-3 rounded-xl bg-yellow-500 text-white my-2 hover:scale-95 transition-all duration-300">
@@ -227,19 +219,19 @@ document.body.removeChild(link);
         }
       }}
     />
-    <div className="homeExpireDiv text-lime-300">Expiration Time <input type="text" className="homeExpireInput bg-stone-50 text-rose-700" maxLength={4} value={number} onChange={handleErrorNumChange} /> minutes. (max. 2880 minutes)</div>
+    <div className="homeExpireDiv">Expiration Time <input type="text" className="homeExpireInput" maxLength={4} value={number} onChange={handleErrorNumChange} /> minutes. (max. 2880 minutes)</div>
     <button type="submit" className="homeBtn">
       {isLoadingSave ? "Loading..." : "Save Copy"}
     </button>
-        {isLoadingSave&&<div className="progress-bar">
-      <div className="progress-bar-fill" style={{width: `${uploadProgress}%`}}></div>
-     <div className="progress-bar-text">{uploadProgress}%</div>
-        </div>}
-      </form>
-    )}
+    {isLoadingSave&&<div className="progress-bar">
+  <div className="progress-bar-fill" style={{width: `${uploadProgress}%`}}></div>
+  <div className="progress-bar-text">{uploadProgress}%</div>
+</div>}
+  </form>
+)}
 
         {codeText && (
-          <div className="homeCode text-white">
+          <div className="homeCode">
             {`Code - ${codeText}`}{" "}
             <button
               className="homeCopyBtn"
@@ -254,7 +246,7 @@ document.body.removeChild(link);
       </div>
       <div className="homeRightDiv w-full justify-center flex">
         <div>
-        <div className="homeTitleText text-lime-300">Reveal from Online CloakShare</div>
+        <div className="homeTitleText text-white">Reveal from Online CloakShare</div>
         <form
           action="submit"
           className="homeForm"
@@ -295,11 +287,7 @@ document.body.removeChild(link);
       </div>
     </div>
     </div>
- 
-  </div>
-   );
-  
-}
-;
+  );
+};
 
 export default Home;
