@@ -24,11 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 8000;
 
-app.get('/api',(req,res)=>{
-    console.log('Ping')
+app.get('/api/health',(req,res)=>{
      res.status(200).json({
- message: 'Data saved successfully',
-        service: 'CloakShare',
+        message: 'All Good',
+        service: 'Online CloakShare',
         status: 'healthy',
         timestamp: new Date().toISOString()
 
