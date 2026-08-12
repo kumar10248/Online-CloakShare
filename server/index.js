@@ -6,7 +6,7 @@ dotenv.config();
 const bodyParser = require('body-parser');
 
 const convertRoutes = require('./routes/convertRoutes');
-const saveRoutes = require('./routes/saveRoutes');
+//const saveRoutes = require('./routes/saveRoutes');
 const showRoutes = require('./routes/showRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 const chatRoutes = require('./routes/chat');
@@ -26,7 +26,14 @@ const PORT = process.env.PORT || 8000;
 
 app.get('/api',(req,res)=>{
     console.log('Ping')
-    res.send('Hello World');
+     res.status(200).json({
+ message: 'Data saved successfully',
+        service: 'CloakShare',
+        status: 'healthy',
+        timestamp: new Date().toISOString()
+
+ });
+
 })
 
 require('./connection');
@@ -36,7 +43,7 @@ const ChatSocketService = require('./services/chatSocketService');
 const chatService = new ChatSocketService(server);
 
 const ClipRoute = require('./routes/ClipRoute');
-app.use('/api/save', saveRoutes);
+//app.use('/api/save', saveRoutes);
 app.use('/api/show', showRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/convert', convertRoutes);
